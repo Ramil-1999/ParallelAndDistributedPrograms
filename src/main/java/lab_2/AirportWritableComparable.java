@@ -1,7 +1,6 @@
 package lab_2;
 
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
+
 import org.apache.hadoop.io.WritableComparable;
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -27,7 +26,7 @@ public class AirportWritableComparable implements WritableComparable {
     public int compareTo(AirportWritableComparable o) {
         int thisValue = this.code;
         int thatValue = o.code;
-        return (thisValue < thatValue ? -1 : (thisValue==thatValue ? 0 : 1));
+        return (Integer.compare(thisValue, thatValue));
     }
 
     public int hashCode() {
