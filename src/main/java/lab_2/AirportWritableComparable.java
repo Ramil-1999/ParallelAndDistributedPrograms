@@ -9,7 +9,7 @@ public class AirportWritableComparable implements WritableComparable {
     // Some data
 
     public void write(DataOutput out) throws IOException {
-    
+
     }
 
     public void readFields(DataInput in) throws IOException {
