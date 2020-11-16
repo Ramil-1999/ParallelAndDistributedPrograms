@@ -2,8 +2,6 @@ package lab_2;
 
 public class AirportWritableComparable implements WritableComparable {
     // Some data
-    private int counter;
-    private long timestamp;
 
     public void write(DataOutput out) throws IOException {
         out.writeInt(counter);
