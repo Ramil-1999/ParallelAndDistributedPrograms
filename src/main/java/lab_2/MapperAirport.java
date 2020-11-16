@@ -7,6 +7,7 @@ import org.apache.hadoop.io.Text;
 import java.io.IOException;
 
 public class MapperAirport extends Mapper<LongWritable, Text, TextPair, Text> {
+    @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
     }
