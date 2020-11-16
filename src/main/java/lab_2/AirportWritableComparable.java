@@ -11,23 +11,22 @@ import java.io.IOException;
 public class AirportWritableComparable implements WritableComparable<AirportWritableComparable> {
     // Some data
     private Integer code;
-    private String name;
+    private String index;
 
     public void write(DataOutput out) throws IOException {
         out.writeInt(code);
-        out.writeUTF(name);
+        out.writeUTF(index);
     }
 
     public AirportWritableComparable(Integer a, String b){
         this.code = a;
-        this.name = b;
+        this.index = b;
     }
 
     public void readFields(DataInput in) throws IOException {
         this.code = in.readInt();
-        this.name = in.readUTF();
+        this.index = in.readUTF();
     }
-
 
     public int hashCode() {
         return code.hashCode();
@@ -35,8 +34,10 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
 
     @Override
     public int compareTo(AirportWritableComparable o) {
-        int thisValue = this.code;
-        int thatValue = o.code;
-        return (Integer.compare(thisValue, thatValue));
+        int value = code.compareTo(o.code);
+        if (value == 0) {
+            return index.compareTo(o.index);
+        }
+        return value;
     }
 }
