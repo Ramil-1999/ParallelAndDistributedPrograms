@@ -32,4 +32,9 @@ public class AirportWritableComparable implements WritableComparable {
     public int hashCode() {
         return code.hashCode();
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }
