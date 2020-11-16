@@ -24,6 +24,7 @@ public class AirportApp {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
 
+        job.setReducerClass();
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
