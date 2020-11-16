@@ -11,15 +11,17 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
     protected void reduce(AirportWritableComparable key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
         Text airportName;
-        Integer sumOfDelays, averageDelay;
-        Integer minDelay, maxDelay;
+        Float sumOfDelays, averageDelay;
+        Float minDelay, maxDelay;
         Iterator<Text> itr = values.iterator();
         airportName = itr.next();
+        
 
         while(itr.hasNext()){
-            String value = itr.next().toString();
-            
-            if
+            Float value = Float.parseFloat(itr.toString());
+            if (value < minDelay) minDelay = value;
+            if (value > maxDelay) maxDelay = value;
+
         }
 
         context.write(airportName, );
