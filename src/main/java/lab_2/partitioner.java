@@ -5,7 +5,7 @@ import org.apache.hadoop.io.Text;
 
 public class AirportPartitioner extends Partitioner<key, Text>{
     @Override
-    public int getPartition(){
-        
+    public int getPartition(Text text, ){
+
     }
 }
