@@ -29,11 +29,11 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
 
         averageDelay = sumOfDelays/counter;
 
-
+        String txt = "";
         if (counter > 0){
-            String sss = minDelay + ", " + maxDelay + ", " + averageDelay;
-            Text output = new Text(sss);
+            txt = minDelay + ", " + maxDelay + ", " + averageDelay;
         }
+        Text output = new Text(txt);
         context.write(airportName, output);
     }
 }
