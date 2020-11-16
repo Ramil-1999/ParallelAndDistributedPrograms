@@ -20,12 +20,14 @@ public class AirportWritableComparable implements WritableComparable {
     }
 
     public void readFields(DataInput in) throws IOException {
-        code = in.readInt();
-        name = in.readUTF();
+        this.code = in.readInt();
+        this.name = in.readUTF();
     }
 
     public int compareTo(AirportWritableComparable o) {
-
+        int thisValue = this.code;
+        int thatValue = o.code;
+        return (thisValue < thatValue ? -1 : (thisValue==thatValue ? 0 : 1));
     }
 
     public int hashCode() {
