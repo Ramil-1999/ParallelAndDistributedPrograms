@@ -9,7 +9,15 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
     @Override
     protected void reduce(AirportWritableComparable key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
+        String airportName;
+        Integer sumOfDelays;
+        Integer minDelay, maxDelay;
 
-        context.write(key, new LongWritable(count));
+
+        for (Text value: values){
+
+        }
+
+        context.write(, );
     }
 }
