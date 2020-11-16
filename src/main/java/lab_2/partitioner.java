@@ -1,5 +1,8 @@
 package lab_2;
 
 import org.apache.hadoop.mapreduce.Partitioner;
+import org.apache.hadoop.io.Text;
 
-public class AirportPartitioner extends Partitioner<>
+public class AirportPartitioner extends Partitioner<key, Text>{
+    
+}
