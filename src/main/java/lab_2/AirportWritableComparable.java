@@ -8,7 +8,7 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 
-public class AirportWritableComparable implements WritableComparable {
+public class AirportWritableComparable implements WritableComparable<AirportWritableComparable> {
     // Some data
     Integer code;
     String name;
@@ -22,19 +22,16 @@ public class AirportWritableComparable implements WritableComparable {
         this.code = in.readInt();
         this.name = in.readUTF();
     }
-
-    public int compareTo(AirportWritableComparable o) {
-        int thisValue = this.code;
-        int thatValue = o.code;
-        return (Integer.compare(thisValue, thatValue));
-    }
+    
 
     public int hashCode() {
         return code.hashCode();
     }
 
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(AirportWritableComparable o) {
+        int thisValue = this.code;
+        int thatValue = o.code;
+        return (Integer.compare(thisValue, thatValue));
     }
 }
