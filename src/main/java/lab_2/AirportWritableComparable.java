@@ -22,7 +22,7 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
         this.code = in.readInt();
         this.name = in.readUTF();
     }
-    
+
 
     public int hashCode() {
         return code.hashCode();
