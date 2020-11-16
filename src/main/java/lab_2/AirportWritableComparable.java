@@ -15,7 +15,7 @@ public class AirportWritableComparable implements WritableComparable {
         timestamp = in.readLong();
     }
 
-    public int compareTo(MyWritableComparable o) {
+    public int compareTo(AirportWritableComparable o) {
         int thisValue = this.value;
         int thatValue = o.value;
         return (thisValue < thatValue ? -1 : (thisValue==thatValue ? 0 : 1));
