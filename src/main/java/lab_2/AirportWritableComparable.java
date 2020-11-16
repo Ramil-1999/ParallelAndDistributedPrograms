@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class AirportWritableComparable implements WritableComparable {
     // Some data
-    int code;
+    Integer code;
     String name;
 
     public void write(DataOutput out) throws IOException {
@@ -29,6 +29,6 @@ public class AirportWritableComparable implements WritableComparable {
     }
 
     public int hashCode() {
-        
+        return code.hashCode();
     }
 }
