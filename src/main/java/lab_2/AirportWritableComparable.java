@@ -1,4 +1,4 @@
 package lab_2;
 
-public class AirportWritableComparable {
+public class AirportWritableComparable extends {
 }
