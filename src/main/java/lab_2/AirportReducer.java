@@ -6,10 +6,9 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-public class AirportReducer extends Reducer<TextPair, Text, Text, Text> {
+public class AirportReducer extends Reducer<AirportWritableComparable, Text, Text, Text> {
     @Override
-    protected void reduce(TextPair key, Iterable<Text> values, Context context) throws
-            IOException, InterruptedException {
-        }
+    protected void reduce(AirportWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+        
     }
 }
