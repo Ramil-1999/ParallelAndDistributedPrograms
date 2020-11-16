@@ -15,7 +15,8 @@ public class AirportWritableComparable implements WritableComparable {
     String name;
 
     public void write(DataOutput out) throws IOException {
-
+        out.writeInt(code);
+        out.writeUTF(name);
     }
 
     public void readFields(DataInput in) throws IOException {
@@ -28,6 +29,6 @@ public class AirportWritableComparable implements WritableComparable {
     }
 
     public int hashCode() {
-
+        
     }
 }
