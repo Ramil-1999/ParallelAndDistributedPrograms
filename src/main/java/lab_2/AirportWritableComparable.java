@@ -19,7 +19,7 @@ public class AirportWritableComparable implements WritableComparable {
     }
 
     public void readFields(DataInput in) throws IOException {
-        code = in.readUTF();
+        code = in.();
         name = in.readUTF();
     }
 
