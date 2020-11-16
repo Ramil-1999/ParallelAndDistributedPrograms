@@ -10,12 +10,17 @@ import java.io.IOException;
 
 public class AirportWritableComparable implements WritableComparable<AirportWritableComparable> {
     // Some data
-    Integer code;
-    String name;
+    private Integer code;
+    private String name;
 
     public void write(DataOutput out) throws IOException {
         out.writeInt(code);
         out.writeUTF(name);
+    }
+
+    public AirportWritableComparable(Integer a, String b){
+        this.code = a;
+        this.name = b;
     }
 
     public void readFields(DataInput in) throws IOException {
