@@ -17,6 +17,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         airportName = itr.next();
 
         while(itr.hasNext()){
+            Text value = itr.next();
             
         }
 
