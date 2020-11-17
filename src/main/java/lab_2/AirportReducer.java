@@ -27,7 +27,6 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
             if (value < minDelay) minDelay = value;
             if (value > maxDelay) maxDelay = value;
             sumOfDelays += value;
-
         }
 
         averageDelay = sumOfDelays/counter;
