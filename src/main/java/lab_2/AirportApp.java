@@ -1,5 +1,6 @@
 package lab_2;
 
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.fs.Path;
@@ -11,7 +12,7 @@ import org.apache.hadoop.io.IntWritable;
 
 public class AirportApp {
     public static void main(String[] args) throws Exception {
-        if (args.length != 2) {
+        if (args.length != 3) {
             System.err.println("Usage: lab2");
             System.exit(-1);
         }
@@ -27,6 +28,8 @@ public class AirportApp {
         job.setPartitionerClass(AirportPartitioner.class);
         job.setGroupingComparatorClass(AirportComparator.class);
         job.setReducerClass(AirportReducer.class);
+
+
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 

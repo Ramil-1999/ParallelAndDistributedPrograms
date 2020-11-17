@@ -7,9 +7,12 @@ import org.apache.hadoop.io.Text;
 import java.io.IOException;
 
 public class MapperAirport extends Mapper<LongWritable, Text, AirportWritableComparable, Text> {
+
+    private static 
+
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String values[] = value.toString().split(", ");
-        context.write(new AirportWritableComparable(Integer.valueOf(values[0]), values[1]), new Text(String.valueOf(0)));
+        context.write(new AirportWritableComparable(Integer.valueOf(values[0]), 0), new Text(values[1]));
     }
 }
