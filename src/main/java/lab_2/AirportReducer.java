@@ -24,7 +24,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
             String str = itr.next().toString();
 
             if (str.length() > 0) {
-                Double value = Double.parseDouble(itr.next().toString());
+                Double value = Double.parseDouble(str);
                 if (value < minDelay) minDelay = value;
                 if (value > maxDelay) maxDelay = value;
                 sumOfDelays += value;
