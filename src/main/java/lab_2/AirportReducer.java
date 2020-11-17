@@ -34,7 +34,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
 
         String txt = "";
         if (counter > 0){
-            txt = minDelay + ", " + maxDelay + ", " + averageDelay;
+            txt = airportName + " - " + minDelay + ", " + maxDelay + ", " + averageDelay;
         }
         Text output = new Text(txt);
         context.write(airportName, output);
