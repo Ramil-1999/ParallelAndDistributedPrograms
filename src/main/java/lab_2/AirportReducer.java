@@ -21,10 +21,14 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
 
         while(itr.hasNext()){
             counter++;
-            Double value = Double.parseDouble(itr.next().toString());
-            if (value < minDelay) minDelay = value;
-            if (value > maxDelay) maxDelay = value;
-            sumOfDelays += value;
+            String str = itr.next().toString();
+
+            if (str.length() > 0) {
+                Double value = Double.parseDouble(itr.next().toString());
+                if (value < minDelay) minDelay = value;
+                if (value > maxDelay) maxDelay = value;
+                sumOfDelays += value;
+            }
         }
 
         averageDelay = sumOfDelays/counter;
