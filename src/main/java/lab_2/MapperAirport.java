@@ -8,11 +8,11 @@ import java.io.IOException;
 
 public class MapperAirport extends Mapper<LongWritable, Text, AirportWritableComparable, Text> {
 
-    private static final ZERO = "0";
+    private static final String ZERO = "0";
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String values[] = value.toString().split(", ");
-        context.write(new AirportWritableComparable(Integer.valueOf(values[0]), 0), new Text(values[1]));
+        context.write(new AirportWritableComparable(Integer.valueOf(values[0]), ZERO), new Text(values[1]));
     }
 }
