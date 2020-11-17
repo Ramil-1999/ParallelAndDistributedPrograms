@@ -13,6 +13,9 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     private Integer code;
     private String index;
 
+    public AirportWritableComparable(){}
+
+    @Override
     public void write(DataOutput out) throws IOException {
         out.writeInt(code);
         out.writeUTF(index);
@@ -23,11 +26,13 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
         this.index = b;
     }
 
+    @Override
     public void readFields(DataInput in) throws IOException {
         this.code = in.readInt();
         this.index = in.readUTF();
     }
 
+    @Override
     public int hashCode() {
         return code.hashCode();
     }
