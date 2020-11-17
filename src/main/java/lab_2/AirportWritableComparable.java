@@ -13,7 +13,7 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     private Integer code;
     private String index;
 
-    public AirportWritableComparable(){}
+    public AirportWritableComparable(){};
 
     @Override
     public void write(DataOutput out) throws IOException {
