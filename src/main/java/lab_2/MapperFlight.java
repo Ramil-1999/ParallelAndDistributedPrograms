@@ -14,6 +14,7 @@ public class MapperFlight extends Mapper<LongWritable, Text, AirportWritableComp
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         if (key.get() != 0) {
             String values[] = value.toString().split(",");
+            
             context.write(new AirportWritableComparable(Integer.valueOf(values[14]), UNO), new Text(values[18]));
         }
     }
