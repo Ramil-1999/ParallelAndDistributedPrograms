@@ -13,13 +13,20 @@ public class MapperFlight extends Mapper<LongWritable, Text, AirportWritableComp
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         if (key.get() != 0) {
-            String values[] = value.toString().replaceAll("\"", "").split(",");
-            if (values[18].length() > 0) {
-                Float delay = Float.parseFloat(values[18]);
-                if (delay > 0) {
-                    context.write(new AirportWritableComparable(Integer.valueOf(values[14]), UNO), new Text(values[18]));
+            String[] arr = value
+                    .toString()
+                    .split(",");
+
+            final String airportId = arr[14];
+            final String delay = arr[18];
+
+            if (delay.length() > 0) {
+                float delayF = Float.parseFloat(delay);
+                if (delayF > 0) {
+                    context.write(new AirportWritableComparable(Integer.valueOf(airportId), UNO), new Text(delay));
                 }
             }
+
         }
     }
 }
