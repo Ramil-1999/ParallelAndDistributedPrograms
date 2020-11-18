@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class MapperFlight extends Mapper<LongWritable, Text, AirportWritableComparable, Text> {
 
-    private static  final  String UNO = "1";
+    private static  final  String UNO = "0";
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {

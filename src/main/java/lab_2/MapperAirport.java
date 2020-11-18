@@ -14,7 +14,7 @@ public class MapperAirport extends Mapper<LongWritable, Text, AirportWritableCom
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         if (key.get() != 0) {
             String[] values = value.toString().replaceAll("\"", "").split(",");
-            context.write(new AirportWritableComparable(values[0], ZERO), new Text(values[1]));
+            context.write(new AirportWritableComparable(values[0], String.valueOf(1)), new Text(values[1]));
         }
     }
 }
