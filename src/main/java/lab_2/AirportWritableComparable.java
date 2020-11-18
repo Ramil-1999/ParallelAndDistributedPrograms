@@ -53,6 +53,6 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
         if (value != 0) {
             return  value;
         }
-        return index.compareTo(o.index);
+        return  - index.compareTo(o.index);
     }
 }
