@@ -11,6 +11,6 @@ public class AirportComparator extends WritableComparator{
 
     @Override
     public int compare(WritableComparable first, WritableComparable second){
-        return ((AirportWritableComparable)first).compareTo((AirportWritableComparable)second);
+        return ((AirportWritableComparable)first).getCode().compareTo(((AirportWritableComparable)second).getCode());
     }
 }
