@@ -32,7 +32,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
 
             averageDelay = sumOfDelays / counter;
 
-            context.write(new Text(airportName), new Text(minDelay + ", " + maxDelay + "," + averageDelay));
+            context.write(new Text(airportName), new Text(minDelay + ", " + maxDelay + ", " + averageDelay));
         }
     }
 }
