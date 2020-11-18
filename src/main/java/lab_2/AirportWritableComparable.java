@@ -32,6 +32,10 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
         return this.code;
     }
 
+    public String getIndex(){
+        return this.index;
+    }
+
     @Override
     public void readFields(DataInput in) throws IOException {
         this.code = in.readUTF();

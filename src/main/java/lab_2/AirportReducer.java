@@ -33,7 +33,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
 
         String txt = "";
         if (counter > 0){
-            txt = "name = " + airportName + ": " + minDelay + ", " + maxDelay + ", " + averageDelay;
+            txt = "index = " + key.getIndex() + "  name = " + airportName + ": " + minDelay + ", " + maxDelay + ", " + averageDelay;
         }
         if (txt.length() > 0) {
             Text output = new Text(txt);
