@@ -9,19 +9,15 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class WordMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
-    public static final String PATTERN_SYMBOLS = "[^A-Za-zА-Яа-я0-9\\s]";
-    public static final String PATTERN_SPACES = " +";
-    public static final String PATTERN_SPACE = " ";
-
     @Override
     protected void map(LongWritable key, Text value, Context context) throws
             IOException, InterruptedException {
 
         String line = value.toString();
 
-        line = line.replaceAll(PATTERN_SYMBOLS, " ").toLowerCase().trim().replaceAll(PATTERN_SPACES, " ");
+        line = line.replaceAll("[^A-Za-zА-Яа-я0-9\\s]", " ").toLowerCase().trim().replaceAll(" +", " ");
 
-        String[] words = line.split(PATTERN_SPACE);
+        String[] words = line.split(" ");
 
         for (String word : words) {
             context.write(new Text(word), new IntWritable(1));

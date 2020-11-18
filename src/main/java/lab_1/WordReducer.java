@@ -2,7 +2,7 @@ package lab_1;
 
 
 import java.io.IOException;
-import java.util.Iterator;
+
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.IntWritable;
