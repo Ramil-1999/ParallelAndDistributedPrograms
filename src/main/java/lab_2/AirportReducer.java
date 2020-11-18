@@ -29,7 +29,11 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
             if (value > maxDelay) maxDelay = value;
             sumOfDelays += value;
         }*/
-        Text test = itr.next();
+        Text test;
+        test = new Text("test");
+        if(itr.hasNext()) {
+            test = itr.next();
+        }
 
         averageDelay = sumOfDelays/counter;
 
