@@ -9,7 +9,8 @@ public class AirportComparator extends WritableComparator{
         super(AirportWritableComparable.class, true);
     }
 
-    public int compareTo(WritableComparable first, WritableComparable second){
+    @Override
+    public int compare(WritableComparable first, WritableComparable second){
         return ((AirportWritableComparable)first).compareTo((AirportWritableComparable)second);
     }
 }
