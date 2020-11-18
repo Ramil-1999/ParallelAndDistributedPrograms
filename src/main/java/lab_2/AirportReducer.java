@@ -21,12 +21,10 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
 
         String txt = "";
 
-        while(itr.hasNext()) {
+        while(itr.hasNext()){
             counter++;
             String str = itr.next().toString();
-
-            txt += str;
-        }
+                        
             /*
             Double value = Double.parseDouble(str);
             if (value < minDelay) minDelay = value;
