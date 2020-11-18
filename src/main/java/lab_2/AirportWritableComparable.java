@@ -50,9 +50,9 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     @Override
     public int compareTo(AirportWritableComparable o) {
         int value = code.compareTo(o.code);
-        if (value == 0) {
-            return  index.compareTo(o.index);
+        if (value != 0) {
+            return  value;
         }
-        return value;
+        return index.compareTo(o.index);
     }
 }
