@@ -37,7 +37,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         }
         if (txt.length() > 0) {
             Text output = new Text(txt);
-            context.write(new Text(key.getCode()), output);
+            context.write(new Text(key.getCode().toString()), output);
         }
     }
 }
