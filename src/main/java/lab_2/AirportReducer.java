@@ -19,22 +19,28 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         Iterator<Text> itr = values.iterator();
         airportName = itr.next();
 
-        while(itr.hasNext()){
+        String txt = "";
+
+        while(itr.hasNext()) {
             counter++;
             String str = itr.next().toString();
 
+            txt += str;
+        }
+            /*
             Double value = Double.parseDouble(str);
             if (value < minDelay) minDelay = value;
             if (value > maxDelay) maxDelay = value;
             sumOfDelays += value;
+
         }
 
         averageDelay = sumOfDelays/counter;
 
-        String txt = "";
+
         if (counter > 0){
             txt = "name = " + airportName + ": " +minDelay + ", " + maxDelay + ", " + averageDelay;
-        }
+        }*/
         if (txt.length() > 0) {
             Text output = new Text(txt);
             context.write(airportName, output);
