@@ -29,7 +29,7 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     public String getCode(){
         return this.code;
     }
-
+    
     @Override
     public void readFields(DataInput in) throws IOException {
         this.code = in.readUTF();
