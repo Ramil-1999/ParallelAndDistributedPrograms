@@ -19,6 +19,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         Iterator<Text> itr = values.iterator();
         airportName = itr.next();
 
+        /*
         while(itr.hasNext()){
             counter++;
             String str = itr.next().toString();
@@ -27,13 +28,14 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
             if (value < minDelay) minDelay = value;
             if (value > maxDelay) maxDelay = value;
             sumOfDelays += value;
-        }
+        }*/
+        Text test = itr.next();
 
         averageDelay = sumOfDelays/counter;
 
         String txt = "";
         if (counter > 0){
-            txt = "index = " + key.getIndex() + "  name = " + airportName + ": " + minDelay + ", " + maxDelay + ", " + averageDelay;
+            txt = "index = " + key.getIndex() + "  name = " + airportName + " next= " + test + ": " + minDelay + ", " + maxDelay + ", " + averageDelay;
         }
         if (txt.length() > 0) {
             Text output = new Text(txt);
