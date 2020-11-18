@@ -18,7 +18,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         Double maxDelay = Double.MIN_VALUE;
         Iterator<Text> itr = values.iterator();
         airportName = itr.next().toString();
-        
+
         while(itr.hasNext()){
             counter++;
             String str = itr.next().toString();
