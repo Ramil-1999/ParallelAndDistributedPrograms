@@ -31,7 +31,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         averageDelay = sumOfDelays/counter;
 
         String txt = "";
-        if (counter >= 0){
+        if (counter > 0){
             txt = minDelay + ", " + maxDelay + ", " + averageDelay;
         }
         if (txt.length() > 0) {
