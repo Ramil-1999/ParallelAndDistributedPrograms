@@ -10,25 +10,25 @@ import java.io.IOException;
 
 public class AirportWritableComparable implements WritableComparable<AirportWritableComparable> {
     // Some data
-    private Integer code;
+    private String code;
     private String index;
 
     public AirportWritableComparable(){};
 
     @Override
     public void write(DataOutput out) throws IOException {
-        out.writeInt(code);
+        out.writeUTF(code);
         out.writeUTF(index);
     }
 
-    public AirportWritableComparable(Integer a, String b){
+    public AirportWritableComparable(String a, String b){
         this.code = a;
         this.index = b;
     }
 
     @Override
     public void readFields(DataInput in) throws IOException {
-        this.code = in.readInt();
+        this.code = in.readUTF();
         this.index = in.readUTF();
     }
 

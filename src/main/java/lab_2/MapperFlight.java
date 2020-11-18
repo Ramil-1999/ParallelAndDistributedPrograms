@@ -17,7 +17,7 @@ public class MapperFlight extends Mapper<LongWritable, Text, AirportWritableComp
             if (values[18].length() > 0) {
                 Double delay = Double.parseDouble(values[18]);
                 if (delay != 0) {
-                    context.write(new AirportWritableComparable(Integer.valueOf(values[14]), UNO), new Text(values[18]));
+                    context.write(new AirportWritableComparable(values[14], UNO), new Text(values[18]));
                 }
             }
         }
