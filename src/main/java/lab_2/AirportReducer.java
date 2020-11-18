@@ -31,8 +31,9 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
             }
 
             averageDelay = sumOfDelays / counter;
+            String averageDelayFormat = String.format("%.2f", averageDelay);
 
-            context.write(new Text(airportName), new Text(minDelay + ", " + maxDelay + ", " + averageDelay));
+            context.write(new Text(airportName), new Text(minDelay + ", " + maxDelay + ", " + averageDelayFormat));
         }
     }
 }
