@@ -51,7 +51,7 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     public int compareTo(AirportWritableComparable o) {
         int value = code.compareTo(o.code);
         if (value == 0) {
-            return index.compareTo(o.index);
+            return  - index.compareTo(o.index);
         }
         return value;
     }
