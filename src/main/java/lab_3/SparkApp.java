@@ -14,6 +14,6 @@ public class SparkApp {
         JavaRDD<String> airports = sc.textFile("hadoop/2.csv");
         JavaRDD<String> flights = sc.textFile("hadoop/1.csv");
 
-        
+        System.out.println(airports);
     }
 }
