@@ -11,7 +11,7 @@ public class SparkApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         //загрузка данных из HDFS
-        JavaRDD<String> airports = sc.textFile();
-        JavaRDD<String> flights = sc.textFile();
+        JavaRDD<String> airports = sc.textFile("./2.csv");
+        JavaRDD<String> flights = sc.textFile("./1.csv");
     }
 }
