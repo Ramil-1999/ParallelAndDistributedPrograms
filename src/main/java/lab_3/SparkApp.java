@@ -21,6 +21,8 @@ public class SparkApp {
         JavaRDD<String> flightsFile = sc.textFile(args[0]);
         JavaRDD<String> airportsFile = sc.textFile(args[1]);
 
+        J
+
 
     }
 }
