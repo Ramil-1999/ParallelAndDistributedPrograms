@@ -7,6 +7,14 @@ import org.apache.spark.api.java.JavaSparkContext;
 
 
 public class SparkApp {
+
+    private final Integer airportID = 0;
+    private final Integer airportName = 1;
+
+    private final Integer originID = 11;
+    private final Integer destID = 14;
+    
+
     public static void main(String[] args) throws Exception {
         if (args.length != 3) {
             System.err.println("Usage: lab3 <table file> <dictionary file> <output file>");
@@ -21,7 +29,7 @@ public class SparkApp {
         JavaRDD<String> flightsFile = sc.textFile(args[0]);
         JavaRDD<String> airportsFile = sc.textFile(args[1]);
 
-        
+
 
     }
 }
