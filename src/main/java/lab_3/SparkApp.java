@@ -13,7 +13,8 @@ public class SparkApp {
 
     private final Integer originID = 11;
     private final Integer destID = 14;
-    private 
+    private final Integer delay = 18;
+
 
 
     public static void main(String[] args) throws Exception {
