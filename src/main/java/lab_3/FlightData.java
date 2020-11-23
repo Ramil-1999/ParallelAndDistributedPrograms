@@ -41,4 +41,8 @@ public class FlightData implements Serializable {
         FlightData tmp = new FlightData(String.valueOf(maxDelay), String.valueOf(counterCanceled/counterSize));
         return tmp;
     }
+
+    public String toString(){
+        return "DELAY: " + delay + ", PERCANTE = " +
+    }
 }

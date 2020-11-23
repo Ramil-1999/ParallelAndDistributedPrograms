@@ -4,7 +4,6 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import lab_3.FlightData;
 import scala.Tuple2;
 
 
@@ -44,8 +43,9 @@ public class SparkApp {
                     String[] arr = row.split(",");
                     return new Tuple2<>(new Tuple2<>(arr[originID], arr[destID]), new FlightData(arr[delay], arr[isCancelled])); })
                 .groupByKey()
-                .map(row -> new Tuple2<>(row._1, new FlightData().calculations(row._2)));
+                .mapValues(row ->  new FlightData().calculations(row));
 
+        System.out.println(flightsKeyValue.first()._2.);
 
 
 
