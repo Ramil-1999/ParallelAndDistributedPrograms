@@ -58,7 +58,7 @@ public class SparkApp {
 
         final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast(airportMap);
 
-        
+        JavaRDD output
 
     }
 }
