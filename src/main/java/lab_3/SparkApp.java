@@ -64,7 +64,7 @@ public class SparkApp {
             return result;
         });
         */
-        System.out.println(airportBroadcasted.value());
+        System.out.println(airportBroadcasted.value().get("15720"));
 
         //output.saveAsTextFile(args[2]);
     }
