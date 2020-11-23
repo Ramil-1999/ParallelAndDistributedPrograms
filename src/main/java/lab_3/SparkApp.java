@@ -62,7 +62,7 @@ public class SparkApp {
             String result = "FROM: " + row._1._1 + ", TO: " + row._1._2 + "," + row._2.toString() + " -- " + airportBroadcasted.value();
             return result;
         });
-        
+
         output.saveAsTextFile(args[2]);
     }
 }
