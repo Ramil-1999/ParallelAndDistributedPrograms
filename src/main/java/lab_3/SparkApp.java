@@ -39,7 +39,8 @@ public class SparkApp {
         JavaRDD<String> airports = airportsFile.filter(row -> !row.equals(aHeader));
 
         JavaPairRDD<Tuple2<String,String>, FlightData> flightsKeyValue = flights.mapToPair(row -> {
-
+            row.split(",");
+            new T
         });
 
 
