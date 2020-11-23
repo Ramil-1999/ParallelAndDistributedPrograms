@@ -47,7 +47,7 @@ public class SparkApp {
                 .mapValues(row ->  new FlightData().calculations(row));
         */
 
-        System.out.println(Integer.valueOf("13.00"));
+        System.out.println(Integer.valueOf("13"));
 
 
 
