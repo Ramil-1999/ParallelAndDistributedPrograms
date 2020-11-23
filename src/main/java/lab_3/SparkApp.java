@@ -39,11 +39,14 @@ public class SparkApp {
         JavaRDD<String> flights = flightsFile.filter(row -> !row.equals(fHeader));  // filter out header
         JavaRDD<String> airports = airportsFile.filter(row -> !row.equals(aHeader));
 
-        JavaPairRDD<Tuple2<String,String>, FlightData> flightsKeyValue = flights.mapToPair(row -> {
-            String[] arr = row.split(",");
-            return new Tuple2<>(new Tuple2<>(arr[originID], arr[destID]),
-                                new FlightData(arr[delay], arr[isCancelled]));
-        }).combineByKey(p -> );
+        JavaPairRDD<Tuple2<String,String>, FlightData> flightsKeyValue = flights
+                .mapToPair(row -> {
+                    String[] arr = row.split(",");
+                    return new Tuple2<>(new Tuple2<>(arr[originID], arr[destID]), new FlightData(arr[delay], arr[isCancelled])); })
+                .groupByKey()
+                .map(row -> new Tuple2<>(row._1, new FlightData().calculations(row._2)));
+
+
 
 
     }
