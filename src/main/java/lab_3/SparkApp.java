@@ -52,8 +52,8 @@ public class SparkApp {
 
         Map<String, String> airportMap = airports.map(row -> {
             String[] values = row.split(REGEX);
-            
-        });
+            return values[1];
+        }).collectAsMap();
 
 
         final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast();
