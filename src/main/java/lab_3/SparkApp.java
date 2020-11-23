@@ -4,7 +4,9 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
+import scala.collection.Map;
 
 
 public class SparkApp {
@@ -45,6 +47,9 @@ public class SparkApp {
                     return new Tuple2<>(new Tuple2<>(arr[originID], arr[destID]), new FlightData(arr[delay], arr[isCancelled])); })
                 .groupByKey()
                 .mapValues(row ->  new FlightData().calculations(row));
+
+        Map<String, String> airportMap = 
+
 
         final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast();
 
