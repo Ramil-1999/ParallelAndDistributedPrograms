@@ -28,13 +28,13 @@ public class FlightData implements Serializable {
     public FlightData calculations(Iterable<FlightData> flights){
         Iterator<FlightData> iter = flights.iterator();
 
-        int maxDelay = 0;
+        double maxDelay = 0;
         int counterCanceled = 0;
         int counterSize = 0;
         for (FlightData flight: flights){
             counterSize++;
-            Integer cDelay = Integer.valueOf(flight.getDelay());
-            Integer cIsCancelled = Integer.valueOf(flight.getIsCancelled());
+            Double cDelay = Double.parseDouble(flight.getDelay());
+            Double cIsCancelled = Double.parseDouble(flight.getIsCancelled());
             if (cDelay > maxDelay) maxDelay = cDelay;
             if (cIsCancelled == 1 || cDelay > 0) counterCanceled++;
         }
