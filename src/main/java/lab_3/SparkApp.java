@@ -43,7 +43,7 @@ public class SparkApp {
             String[] arr = row.split(",");
             return new Tuple2<>(new Tuple2<>(arr[originID], arr[destID]),
                                 new FlightData(arr[delay], arr[isCancelled]));
-        }).combineByKey()
+        }).combineByKey();
 
 
     }

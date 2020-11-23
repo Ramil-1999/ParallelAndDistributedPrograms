@@ -10,4 +10,12 @@ public class FlightData implements Serializable {
         this.delay = delay;
         this.isCancelled = isCancelled;
     }
+
+    public String getDelay(){
+        return this.delay;
+    }
+
+    public String getIsCancelled(){
+        return this.isCancelled;
+    }
 }
