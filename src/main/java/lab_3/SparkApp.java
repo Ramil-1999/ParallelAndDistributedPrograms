@@ -64,7 +64,7 @@ public class SparkApp {
             return result;
         });
         */
-        System.out.println(airportBroadcasted.value().get(""));
+        System.out.println(airportBroadcasted.value().keySet());
 
         //output.saveAsTextFile(args[2]);
     }
