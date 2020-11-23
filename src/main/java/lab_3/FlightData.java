@@ -43,6 +43,6 @@ public class FlightData implements Serializable {
     }
 
     public String toString(){
-        return "DELAY: " + delay + ", PERCANT = " +
+        return "DELAY: " + delay + ", PERCENT = " + isCancelled;
     }
 }

@@ -45,7 +45,7 @@ public class SparkApp {
                 .groupByKey()
                 .mapValues(row ->  new FlightData().calculations(row));
 
-        System.out.println(flightsKeyValue.first()._2.);
+        System.out.println(flightsKeyValue.first()._2.toString());
 
 
 
