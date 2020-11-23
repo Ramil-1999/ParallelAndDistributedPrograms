@@ -46,7 +46,7 @@ public class SparkApp {
                 .groupByKey()
                 .mapValues(row ->  new FlightData().calculations(row));
 
-        final br
+        final Broadcast<> airportBroadca
 
 
 
