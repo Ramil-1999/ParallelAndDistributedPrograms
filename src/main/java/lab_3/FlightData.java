@@ -35,12 +35,12 @@ public class FlightData implements Serializable {
             Double cIsCancelled = Double.parseDouble(flight.getIsCancelled());
             if (cIsCancelled == 1){
                 counterCanceled++;
-                continue;
+                
             }
             Double cDelay = Double.parseDouble(flight.getDelay());
             if (cDelay > maxDelay) maxDelay = cDelay;
             if (cDelay > 0) counterCanceled++;
-            
+
         }
         FlightData tmp = new FlightData(String.valueOf(maxDelay), String.valueOf(100 * (double)counterCanceled/(double)counterSize));
         return tmp;
