@@ -1,11 +1,11 @@
 package lab_3;
 
 import org.apache.spark.SparkConf;
-import org.apache.spark.StopMapOutputTracker;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-
+import lab_3.FlightData;
+import scala.Tuple2;
 
 
 public class SparkApp {
@@ -38,7 +38,9 @@ public class SparkApp {
         JavaRDD<String> flights = flightsFile.filter(row -> !row.equals(fHeader));  // filter out header
         JavaRDD<String> airports = airportsFile.filter(row -> !row.equals(aHeader));
 
+        JavaPairRDD<Tuple2<String,String>, FlightData> flightsKeyValue = flights.mapToPair(row -> {
 
+        });
 
 
     }
