@@ -46,7 +46,7 @@ public class SparkApp {
                 .groupByKey()
                 .mapValues(row ->  new FlightData().calculations(row));
 
-        final Broadcast<> airportBroadcasted = sc.broadcast();
+        final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast();
 
 
 
