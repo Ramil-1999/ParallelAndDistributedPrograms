@@ -6,7 +6,8 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
-import scala.collection.Map;
+
+import java.util.Map;
 
 
 public class SparkApp {
@@ -50,13 +51,13 @@ public class SparkApp {
                 .groupByKey()
                 .mapValues(row ->  new FlightData().calculations(row));
 
-        Map<String, String> airportMap = airports.map(row -> {
-            String[] values = row.split(REGEX);
-            return values[1];
-        }).collectAsMap();
+        Map<String, String> airportMap = airports
+                .map(row -> row.split(REGEX))
+                .mapToPair(row -> new Tuple2<>(row[0], row[1])).collectAsMap();
 
+        System.out.println(airportMap);
 
-        final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast();
+        final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast(airportMap);
 
 
 
