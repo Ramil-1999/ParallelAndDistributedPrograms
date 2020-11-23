@@ -38,7 +38,7 @@ public class FlightData implements Serializable {
             if (cDelay > maxDelay) maxDelay = cDelay;
             if (cIsCancelled == 1 || cDelay > 0) counterCanceled++;
         }
-        FlightData tmp = new FlightData(String.valueOf(maxDelay), String.valueOf(counterCanceled/counterSize));
+        FlightData tmp = new FlightData(String.valueOf(maxDelay), String.valueOf((double)counterCanceled/(double)counterSize));
         return tmp;
     }
 
