@@ -20,7 +20,7 @@ public class SparkApp {
 
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 2) {
+        if (args.length != 3) {
             System.err.println("Usage: lab3 <table file> <dictionary file> <output file>");
             System.exit(-1);
         }
@@ -38,7 +38,7 @@ public class SparkApp {
         JavaRDD<String> flights = flightsFile.filter(row -> !row.equals(fHeader));  // filter out header
         JavaRDD<String> airports = airportsFile.filter(row -> !row.equals(aHeader));
 
-        
+
 
 
     }
