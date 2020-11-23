@@ -1,6 +1,7 @@
 package lab_3;
 
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
@@ -18,7 +19,7 @@ public class SparkApp {
 
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 3) {
+        if (args.length != 2) {
             System.err.println("Usage: lab3 <table file> <dictionary file> <output file>");
             System.exit(-1);
         }
@@ -30,6 +31,8 @@ public class SparkApp {
         //загрузка данных из HDFS
         JavaRDD<String> flightsFile = sc.textFile(args[0]);
         JavaRDD<String> airportsFile = sc.textFile(args[1]);
+
+        Java
 
 
 
