@@ -10,12 +10,13 @@ import scala.Tuple2;
 
 public class SparkApp {
 
-    private final Integer airportID = 0;
-    private final Integer airportName = 1;
+    private static final Integer airportID = 0;
+    private static final Integer airportName = 1;
 
-    private final Integer originID = 11;
-    private final Integer destID = 14;
-    private final Integer delay = 18;
+    private static final Integer originID = 11;
+    private static final Integer destID = 14;
+    private static final Integer delay = 18;
+    private static final Integer isCancelled = 19;
 
 
 
@@ -39,9 +40,12 @@ public class SparkApp {
         JavaRDD<String> airports = airportsFile.filter(row -> !row.equals(aHeader));
 
         JavaPairRDD<Tuple2<String,String>, FlightData> flightsKeyValue = flights.mapToPair(row -> {
-            row.split(",");
-            new T
+            String[] arr = row.split(",");
+            return new Tuple2<>(new Tuple2<>(arr[originID], arr[destID]),
+                                new FlightData(arr[delay], arr[isCancelled]));
         });
+
+        System.out.println(flightsKeyValue.first());
 
 
     }
