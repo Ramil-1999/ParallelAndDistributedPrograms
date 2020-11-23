@@ -26,7 +26,6 @@ public class FlightData implements Serializable {
     }
 
     public FlightData calculations(Iterable<FlightData> flights){
-        Iterator<FlightData> iter = flights.iterator();
 
         double maxDelay = 0;
         int counterCanceled = 0;
