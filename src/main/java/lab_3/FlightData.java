@@ -33,8 +33,8 @@ public class FlightData implements Serializable {
         int counterSize = 0;
         for (FlightData flight: flights){
             counterSize++;
-            int cDelay = Integer.valueOf(flight.getDelay());
-            int cIsCancelled = Integer.valueOf(flight.getIsCancelled());
+            Integer cDelay = Integer.valueOf(flight.getDelay());
+            Integer cIsCancelled = Integer.valueOf(flight.getIsCancelled());
             if (cDelay > maxDelay) maxDelay = cDelay;
             if (cIsCancelled == 1 || cDelay > 0) counterCanceled++;
         }
