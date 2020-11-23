@@ -59,7 +59,7 @@ public class SparkApp {
         final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast(airportMap);
 
         JavaRDD output = flightsKeyValue.map(row -> {
-            String result = "FROM: " + row._1._1 + ", TO: " + row._1._2 + "," + row._2.toString() + " -- " + airportBroadcasted.value();
+            String result = "FROM: " + row._1._1 + ", TO: " + row._1._2 + ", " + row._2.toString() + " -- FROM: " + airportBroadcasted.value().get(row._1._1) + ", TO: " + airportBroadcasted.value().get(row._1._2);
             return result;
         });
 
