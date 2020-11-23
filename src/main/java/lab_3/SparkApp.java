@@ -53,13 +53,12 @@ public class SparkApp {
 
         Map<String, String> airportMap = airports
                 .map(row -> row.split(REGEX))
-                .mapToPair(row -> new Tuple2<>(row[0], row[1])).collectAsMap();
+                .mapToPair(row -> new Tuple2<>(row[airportID], row[airportName])).collectAsMap();
 
-        System.out.println(airportMap);
 
         final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast(airportMap);
 
-
+        
 
     }
 }
