@@ -11,6 +11,8 @@ import scala.collection.Map;
 
 public class SparkApp {
 
+    private static final String REGEX = ",";
+
     private static final Integer airportID = 0;
     private static final Integer airportName = 1;
 
@@ -43,13 +45,14 @@ public class SparkApp {
 
         JavaPairRDD<Tuple2<String,String>, FlightData> flightsKeyValue = flights
                 .mapToPair(row -> {
-                    String[] arr = row.split(",");
+                    String[] arr = row.split(REGEX);
                     return new Tuple2<>(new Tuple2<>(arr[originID], arr[destID]), new FlightData(arr[delay], arr[isCancelled])); })
                 .groupByKey()
                 .mapValues(row ->  new FlightData().calculations(row));
 
         Map<String, String> airportMap = airports.map(row -> {
-            String[] values = 
+            String[] values = row.split(REGEX);
+            
         });
 
 
