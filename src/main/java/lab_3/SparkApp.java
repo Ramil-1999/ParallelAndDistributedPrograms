@@ -58,11 +58,14 @@ public class SparkApp {
 
         final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast(airportMap);
 
+        /*
         JavaRDD output = flightsKeyValue.map(row -> {
             String result = "FROM: " + row._1._1 + ", TO: " + row._1._2 + ", " + row._2.toString() + " -- FROM: " + airportBroadcasted.value().get(row._1._1) + ", TO: " + airportBroadcasted.value().get(row._1()._2());
             return result;
         });
+        */
+        System.out.println(airportBroadcasted.value().get("100001"));
 
-        output.saveAsTextFile(args[2]);
+        //output.saveAsTextFile(args[2]);
     }
 }
