@@ -35,8 +35,8 @@ public class SparkApp {
 
         String fHeader = flightsFile.first();
         String aHeader = airportsFile.first();
-        JavaRDD<String> flights = flightsFile.filter(row -> row != fHeader);  // filter out header
-        JavaRDD<String> airports = airportsFile.filter(row -> row != aHeader);
+        JavaRDD<String> flights = flightsFile.filter(row -> !row.equals(fHeader));  // filter out header
+        JavaRDD<String> airports = airportsFile.filter(row -> !row.equals(aHeader));
 
         System.out.println(airports.first());
 
