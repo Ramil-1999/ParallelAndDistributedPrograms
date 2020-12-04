@@ -12,15 +12,15 @@ import java.util.Map;
 
 public class SparkApp {
 
-    private static final String REGEX = ",";
+    private static final String COMMA_PATT = ",";
 
-    private static final Integer airportID = 0;
-    private static final Integer airportName = 1;
+    private static final int airportID = 0;
+    private static final int airportName = 1;
 
-    private static final Integer originID = 11;
-    private static final Integer destID = 14;
-    private static final Integer delay = 18;
-    private static final Integer isCancelled = 19;
+    private static final int originID = 11;
+    private static final int destID = 14;
+    private static final int delay = 18;
+    private static final int isCancelled = 19;
 
 
 
@@ -46,13 +46,13 @@ public class SparkApp {
 
         JavaPairRDD<Tuple2<String,String>, FlightData> flightsKeyValue = flights
                 .mapToPair(row -> {
-                    String[] arr = row.split(REGEX);
+                    String[] arr = row.split(COMMA_PATT);
                     return new Tuple2<>(new Tuple2<>(arr[originID], arr[destID]), new FlightData(arr[delay], arr[isCancelled])); })
                 .groupByKey()
                 .mapValues(row ->  new FlightData().calculations(row));
 
         Map<String, String> airportMap = airports
-                .map(row -> row.split(REGEX))
+                .map(row -> row.split(COMMA_PATT))
                 .mapToPair(row -> new Tuple2<>(row[airportID], row[airportName])).collectAsMap();
 
 
@@ -60,7 +60,7 @@ public class SparkApp {
 
 
         JavaRDD output = flightsKeyValue.map(row -> {
-            String result = "FROM: " + row._1._1 + ", TO: " + row._1._2 + ", " + row._2.toString() + " -- FROM: " + airportBroadcasted.value().get(row._1._1) + ", TO: " + airportBroadcasted.value().get(row._1()._2());
+            String result = " FROM: " + airportBroadcasted.value().get(row._1._1) + ", TO: " + airportBroadcasted.value().get(row._1()._2() + ", " + row._2.toString());
             return result;
         });
 
