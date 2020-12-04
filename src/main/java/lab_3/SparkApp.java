@@ -13,6 +13,7 @@ import java.util.Map;
 public class SparkApp {
 
     private static final String COMMA_PATT = ",";
+    private static final String QUAT_PATT = "\"";
 
     private static final int airportID = 0;
     private static final int airportName = 1;
@@ -52,7 +53,7 @@ public class SparkApp {
                 .mapValues(row ->  new FlightData().calculations(row));
 
         Map<String, String> airportMap = airports
-                .map(row -> row.split(COMMA_PATT))
+                .map(row -> row.split(QUAT_PATT))
                 .mapToPair(row -> new Tuple2<>(row[airportID], row[airportName])).collectAsMap();
 
 
