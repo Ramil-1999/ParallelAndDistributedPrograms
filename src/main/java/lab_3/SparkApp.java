@@ -53,15 +53,15 @@ public class SparkApp {
                 .mapValues(row ->  new FlightData().calculations(row));
 
         Map<String, String> airportMap = airports
-                .map(row -> row.split(QUAT_PATT))
-                .mapToPair(row -> new Tuple2<>(row[airportID], row[airportName])).collectAsMap();
+                .map(row -> row.split(COMMA_PATT))
+                .mapToPair(row -> new Tuple2<>(row[airportID].replace("\"", ""), row[airportName].replace("\"", ""))).collectAsMap();
 
 
         final Broadcast<Map<String, String>> airportBroadcasted = sc.broadcast(airportMap);
 
 
         JavaRDD output = flightsKeyValue.map(row -> {
-            String result = " FROM: " + airportBroadcasted.value().get(row._1._1) + ", TO: " + airportBroadcasted.value().get(row._1()._2() + ", " + row._2.toString());
+            String result = " FROM: " + airportBroadcasted.value().get(row._1._1) + ", TO: " + airportBroadcasted.value().get(row._1._2) + ", " + row._2.toString();
             return result;
         });
 
